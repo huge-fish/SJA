@@ -10,7 +10,7 @@ This repository contains implementations of Skill Jailbreak Assessment (SJA) sys
 
 
 
-## Filesthe Skill Jailbreak Assessment (SJA)
+## Skill Jailbreak Assessment (SJA)
 - `attack_ag.py`: Implementation of the strategy collection phase using Feedback-based Jailbreak Multi-agent system
 - `attack_ag_cn.py`: Chinese version of the FJMA implementation for strategy collection
 - `Skills/`: Directory containing example skills and demonstrations
@@ -35,7 +35,23 @@ To use the Feedback-based Jailbreak Multi-agent system for strategy collection:
 python attack_ag.py
 ```
 
-
+## PARAMETER
+The main parameters of FJMA and SJA are for model selection. The code provides an OpenAI-style API interface, and you only need your API key and to select the specified model.
+```python
+ client = OpenAI(
+        # #将这里换成你在aihubmix api keys拿到的密钥
+        api_key="sk-5lNW7ZBmgcGbpRU2020c78C018E54cB5AdBeBbFe5901FeF6",
+        # 这里将官方的接口访问地址，替换成aihubmix的入口地址
+        base_url="https://aihubmix.com/v1"
+    )
+    neg_conv = [{"role": "system", "content": '''You are a helpful assisant'''},
+                {"role": "user", "content": propmt}]
+    chat_completion = client.chat.completions.create(
+        messages=neg_conv,
+        model=model_name,
+    )
+    return chat_completion.choices[0].message.content
+```
 
 ## Future Updates
 
