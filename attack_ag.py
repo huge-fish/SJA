@@ -26,7 +26,7 @@ def neg_feedback(bad_prompt):
 def answer_feedback(ori_answer):
     client = OpenAI(
         # #将这里换成你在aihubmix api keys拿到的密钥
-        api_key="sk-5lNW7ZBmgcGbpRU2020c78C018E54cB5AdBeBbFe5901FeF6",
+        api_key="",
         # 这里将官方的接口访问地址，替换成aihubmix的入口地址
         base_url="https://aihubmix.com/v1"
     )
@@ -313,3 +313,4 @@ for mal_goal in mal_goals:
 print(total_rate)
 print(total_succuess)
 print(half_success)
+
